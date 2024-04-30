@@ -1,0 +1,11 @@
+.DS_Store
+*.code-workspace
+.vscode
+
+*.o
+*.a
+
+minilibx_opengl.tgz
+minilibx_opengl_20191021
+sample
+
