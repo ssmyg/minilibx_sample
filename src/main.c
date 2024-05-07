@@ -43,7 +43,7 @@ enum
 	ON_DESTROY = 17
 };
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+void	my_mlx_pixel_put(t_data *data, int x, int y, unsigned int color)
 {
 	char	*dst;
 
@@ -51,7 +51,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-void	draw_pixel(t_vars *vars, int x, int y, int color)
+void	draw_pixel(t_vars *vars, int x, int y, unsigned int color)
 {
 	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
 		return ;
@@ -71,7 +71,7 @@ int	key_hook(int keycode, t_vars *vars)
 int	mouse_move(int x, int y, t_vars *vars)
 {
 	printf("mouse move: %d, %d\n", x, y);
-	draw_pixel(vars, x, y, 0x00FF0000);
+	draw_pixel(vars, x, y, 0x00FF0000U);
 	return (0);
 }
 
@@ -109,7 +109,7 @@ int	loop_hook(t_vars *vars)
 		x = 2 * WIDTH - x;
 	if (y > HEIGHT)
 		y = 2 * HEIGHT - y;
-	draw_pixel(vars, x, y, 0x0000FF00);
+	draw_pixel(vars, x, y, 0x0000FF00U);
 	n = (n + 2) % (WIDTH * HEIGHT);
 	return (0);
 }
