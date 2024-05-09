@@ -110,6 +110,8 @@ int	loop_hook(t_vars *vars)
 	if (y > HEIGHT)
 		y = 2 * HEIGHT - y;
 	draw_pixel(vars, x, y, 0x0000FF00U);
+	if (n % WIDTH == 0 || n % HEIGHT == 0 || (n + 1) % HEIGHT == 0)
+		printf("beep\a\n");
 	n = (n + 2) % (WIDTH * HEIGHT);
 	return (0);
 }
