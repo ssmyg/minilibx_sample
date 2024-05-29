@@ -92,6 +92,7 @@ int	mouse_up(int key, int x, int y, t_vars *vars)
 int	window_close(t_vars *vars)
 {
 	printf("window close\n");
+	mlx_destroy_image(vars->mlx, vars->img.img);
 	mlx_destroy_window(vars->mlx, vars->win);
 	exit(0);
 	return (0);
