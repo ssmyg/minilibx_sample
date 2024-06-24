@@ -58,7 +58,6 @@ void	draw_pixel(t_vars *vars, int x, int y, unsigned int color)
 	vars->img.addr = mlx_get_data_addr(vars->img.img, &vars->img.bits_per_pixel,
 			&vars->img.line_length, &vars->img.endian);
 	my_mlx_pixel_put(&vars->img, x, y, color);
-	mlx_put_image_to_window(vars->mlx, vars->win, vars->img.img, 0, 0);
 }
 
 int	key_hook(int keycode, t_vars *vars)
@@ -111,8 +110,8 @@ int	loop_hook(t_vars *vars)
 	if (y > HEIGHT)
 		y = 2 * HEIGHT - y;
 	draw_pixel(vars, x, y, 0x0000FF00U);
-	if (n % WIDTH == 0 || n % HEIGHT == 0 || (n + 1) % HEIGHT == 0)
-		printf("beep\a\n");
+	if (n % 20 == 0)
+		mlx_put_image_to_window(vars->mlx, vars->win, vars->img.img, 0, 0);
 	n = (n + 2) % (WIDTH * HEIGHT);
 	return (0);
 }
